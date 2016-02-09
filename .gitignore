@@ -1,3 +1,10 @@
+# OSX specific
+.DS_Store
+
+# IDE specific
+.idea
+
+# DependencyMangager specific
 vendor/
 node_modules/
 
