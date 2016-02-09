@@ -40,14 +40,16 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel ({{ App::environment() }})
+                    Blog ({{ App::environment() }})
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                    @if (Auth::check())
+                        <li><a href="{{ route('post-new') }}">New Entry</a></li>
+                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
