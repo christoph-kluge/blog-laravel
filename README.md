@@ -1,3 +1,22 @@
+## Blog example written with laravel
+ 
+## Setup the docker machine
+
+    # create the docker-machine called "dev"
+    docker-machine create --driver virtualbox dev
+
+    # start the docker-machine and export required globals
+    docker-machine start dev && eval "$(docker-machine env dev)"
+  
+    # remove existing containers, build the app containers and start them
+    docker-compose rm -f && docker-compose build && docker-compose up
+    
+    # find docker host ip and add it with the hostname to local hosts-file
+    export DOCKER_IP_ADDRESS=$(docker-machine env dev |grep HOST | tr '//' ' ' |tr ':' ' ' |awk '{print $3}')
+    sudo /bin/bash -c "echo '$DOCKER_IP_ADDRESS local-blog.christophkluge.com' >> /etc/hosts"
+
+
+
 ## Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)

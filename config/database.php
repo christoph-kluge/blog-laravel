@@ -52,6 +52,18 @@ return [
             'prefix'   => '',
         ],
 
+        'docker' => [
+          'driver'    => 'mysql',
+          'host'      => env('SERVICE_DB_PORT_3306_TCP_ADDR', 'localhost'),
+          'database'  => env('SERVICE_DB_ENV_MYSQL_DATABASE', 'laravel'),
+          'username'  => env('SERVICE_DB_ENV_MYSQL_USER', 'laravel'),
+          'password'  => env('SERVICE_DB_ENV_MYSQL_PASSWORD', 'laravel'),
+          'charset'   => 'utf8',
+          'collation' => 'utf8_unicode_ci',
+          'prefix'    => '',
+          'strict'    => false,
+        ],
+
         'mysql' => [
             'driver'    => 'mysql',
             'host'      => env('DB_HOST', 'localhost'),
