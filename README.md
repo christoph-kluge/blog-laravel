@@ -14,6 +14,9 @@
     # find docker host ip and add it with the hostname to local hosts-file
     export DOCKER_IP_ADDRESS=$(docker-machine env dev |grep HOST | tr '//' ' ' |tr ':' ' ' |awk '{print $3}')
     sudo /bin/bash -c "echo '$DOCKER_IP_ADDRESS local-blog.christophkluge.com' >> /etc/hosts"
+    
+    # install database + run database seeds
+    docker-machine ssh dev 'docker exec -t app /bin/bash -c "php /data/vhost/artisan migrate && php /data/vhost/artisan db:seed"'
 
 
 
