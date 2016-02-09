@@ -3,6 +3,8 @@
 
 # IDE specific
 .idea
+.phpstorm.meta.php
+_ide_helper.php
 
 # DependencyMangager specific
 vendor/
